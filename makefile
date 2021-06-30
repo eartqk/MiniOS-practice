@@ -3,8 +3,8 @@ update_image: compile
 	@losetup /dev/loop1 ./hdd.img
 	@echo "Mounting partition to /dev/loop2..."
 	@losetup /dev/loop2 ./hdd.img \
-	--offset	`echo \`fdisk -lu /dev/loop1 | sed -n 10p | awk '{print $$3}'\`*512 | bc` \
-	--sizelimit `echo \`fdisk -lu /dev/loop1 | sed -n 10p | awk '{print $$4}'\`*512 | bc`
+	--offset	`echo \`fdisk -lu /dev/loop1 | sed -n 9p | awk '{print $$3}'\`*512 | bc` \
+	--sizelimit `echo \`fdisk -lu /dev/loop1 | sed -n 9p | awk '{print $$4}'\`*512 | bc`
 	@losetup -d /dev/loop1
 
 	@echo "Write new MiniOS.bin to hdd.img..."
@@ -30,8 +30,8 @@ image:
 
 	@echo "Mounting partition to /dev/loop2..."
 	@losetup /dev/loop2 ./hdd.img \
-	--offset	`echo \`fdisk -lu /dev/loop1 | sed -n 10p | awk '{print $$3}'\`*512 | bc` \
-	--sizelimit `echo \`fdisk -lu /dev/loop1 | sed -n 10p | awk '{print $$4}'\`*512 | bc`
+	--offset	`echo \`fdisk -lu /dev/loop1 | sed -n 9p | awk '{print $$3}'\`*512 | bc` \
+	--sizelimit `echo \`fdisk -lu /dev/loop1 | sed -n 9p | awk '{print $$4}'\`*512 | bc`
 	@losetup -d /dev/loop1
 
 	@echo "Format partition..."
