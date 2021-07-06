@@ -9,7 +9,7 @@
 #include "scheduler.h"
 
 
-int main(struct multiboot *boot_ptr)
+int main(struct multiboot *mboot_ptr)
 {
     // Initialise all the ISRs and segmentation
     init_descriptor_tables();
