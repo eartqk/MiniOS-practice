@@ -6,7 +6,7 @@
 
 extern thread_t *current_thread;
 
-static uint32_t atomic_test_and_set (volatile spinlock_t *lock) {
+static u32int atomic_test_and_set (volatile spinlock_t *lock) {
 	register spinlock_t value = SPINLOCK_UNLOCKED;
 	
 	asm volatile("lock					\
