@@ -4,9 +4,12 @@
 #include "multiboot.h"
 #include "descriptor_tables.h"
 #include "timer.h"
+#include "thread.h"
+#include "lock.h"
+#include "scheduler.h"
 
 
-int main(struct multiboot *mboot_ptr)
+int main(struct multiboot *boot_ptr)
 {
     // Initialise all the ISRs and segmentation
     init_descriptor_tables();
