@@ -14,6 +14,4 @@ u32int kmalloc_ap(u32int sz, u32int *phys);
 
 u32int kmalloc(u32int sz);
 
-void kfree(void *p);
-
 #endif // SMEM_H
