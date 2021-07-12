@@ -114,9 +114,12 @@ int strlen(char *src)
 
 extern void panic(const char *msg)
 {
-  printk ("*** System panic: %s\n", msg);
-  print_stack_trace ();
-  printk ("***\n");
+    // We encountered a massive problem and have to stop.
+    asm volatile("cli"); // Disable interrupts.
+
+    monitor_write("PANIC(");
+    monitor_write(msg);
+    monitor_write(")\n");
   for (;;) ;
 }
 
